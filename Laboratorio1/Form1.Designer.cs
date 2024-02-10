@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.mensaje = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lbtotal = new System.Windows.Forms.Label();
@@ -40,8 +41,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.precio = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -61,6 +63,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.precio);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.mensaje);
             this.groupBox1.Controls.Add(this.label4);
@@ -79,10 +83,19 @@
             this.groupBox1.Text = "Facturación";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(65, 142);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 13);
+            this.label5.TabIndex = 19;
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
             // mensaje
             // 
             this.mensaje.AutoSize = true;
-            this.mensaje.Location = new System.Drawing.Point(49, 169);
+            this.mensaje.Location = new System.Drawing.Point(9, 203);
             this.mensaje.Name = "mensaje";
             this.mensaje.Size = new System.Drawing.Size(0, 13);
             this.mensaje.TabIndex = 18;
@@ -100,7 +113,7 @@
             // lbtotal
             // 
             this.lbtotal.AutoSize = true;
-            this.lbtotal.Location = new System.Drawing.Point(20, 204);
+            this.lbtotal.Location = new System.Drawing.Point(49, 169);
             this.lbtotal.Name = "lbtotal";
             this.lbtotal.Size = new System.Drawing.Size(0, 13);
             this.lbtotal.TabIndex = 16;
@@ -116,7 +129,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(89, 103);
+            this.button1.Location = new System.Drawing.Point(76, 103);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(151, 23);
             this.button1.TabIndex = 14;
@@ -154,17 +167,10 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(76, 33);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(241, 21);
+            this.comboBox1.Size = new System.Drawing.Size(126, 21);
             this.comboBox1.TabIndex = 10;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(73, 142);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 13);
-            this.label5.TabIndex = 19;
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBox1.SelectionChangeCommitted += new System.EventHandler(this.comboBox1_SelectionChangeCommitted);
             // 
             // label6
             // 
@@ -175,6 +181,23 @@
             this.label6.Size = new System.Drawing.Size(427, 39);
             this.label6.TabIndex = 9;
             this.label6.Text = "Formulario de facturacion";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(208, 36);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(40, 13);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Precio:";
+            // 
+            // precio
+            // 
+            this.precio.AutoSize = true;
+            this.precio.Location = new System.Drawing.Point(245, 36);
+            this.precio.Name = "precio";
+            this.precio.Size = new System.Drawing.Size(0, 13);
+            this.precio.TabIndex = 21;
             // 
             // Form1
             // 
@@ -210,6 +233,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label precio;
+        private System.Windows.Forms.Label label7;
     }
 }
 

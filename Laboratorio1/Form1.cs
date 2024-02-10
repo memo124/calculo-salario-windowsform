@@ -50,7 +50,7 @@ namespace Laboratorio1
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         public void generarTabla()
@@ -58,7 +58,7 @@ namespace Laboratorio1
             dataGridView1.Rows.Clear();
             foreach (var item in detalle)
             {
-                dataGridView1.Rows.Add(item.producto,item.precio,item.cantidad);
+                dataGridView1.Rows.Add(item.producto, item.precio, item.cantidad);
             }
         }
 
@@ -69,11 +69,19 @@ namespace Laboratorio1
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-             double precio = 0;
-            int cantidad = int.Parse(txtcantidad.Text);
-            if (cantidad<=0)
+            double precio = 0;
+            if (txtcantidad.Text.Equals(""))
             {
-                MessageBox.Show("Favor ingresar una cantidad a llevar");
+                MessageBox.Show("Favor ingresar un numero en la cantidad");
+                return;
+
+            }
+            int cantidad = int.Parse(txtcantidad.Text);
+            if (cantidad <= 0)
+            {
+                MessageBox.Show("Favor ingresar un numero mayor o igual a uno (1)");
+                return;
+
             }
             if (comboBox1.SelectedItem == null)
             {
@@ -91,7 +99,7 @@ namespace Laboratorio1
             }
             // Calcular el total sin aplicar descuentos
             double totalSinDescuento = total + (cantidad * precio);
-
+            label5.Text = totalSinDescuento.ToString();
             // Aplicar los descuentos según el total sin descuento
             if (totalSinDescuento <= 100)
             {
@@ -112,9 +120,8 @@ namespace Laboratorio1
                 totalSinDescuento -= totalSinDescuento * 0.30;
                 mensaje.Text = "Felicidades, has ganado un producto promocional";
             }
-            total = totalSinDescuento;
+            total = (totalSinDescuento - total)-total;
             lbtotal.Text = total.ToString();
-            label5.Text = $"${totalSinDescuento}";
             this.detalle.Add( new
                 detalle()
                 {
@@ -143,6 +150,25 @@ namespace Laboratorio1
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedItem != null)
+            {
+                foreach (Articulo articulo in articulos)
+                {
+                    if (articulo.articulo.Equals(comboBox1.SelectedItem.ToString()))
+                    {
+                        precio.Text = articulo.precio.ToString();
+                    }
+                }
+            }
         }
     }
 }
